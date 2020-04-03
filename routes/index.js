@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const PostModel = require('../models/post')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -12,7 +13,7 @@ router.get("/all", async (req, res) => {
 })
 
 router.get("/:id?", async (req, res) => {
-  const userPost = await PostModel.getById()
+  const userPost = await PostModel.getById(1)
   res.json(userPost).status(200);
 })
 
